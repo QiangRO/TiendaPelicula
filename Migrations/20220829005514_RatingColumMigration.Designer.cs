@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TiendaPelicula.Data;
 
@@ -11,9 +12,10 @@ using TiendaPelicula.Data;
 namespace TiendaPelicula.Migrations
 {
     [DbContext(typeof(TiendaPeliculaContext))]
-    partial class TiendaPeliculaContextModelSnapshot : ModelSnapshot
+    [Migration("20220829005514_RatingColumMigration")]
+    partial class RatingColumMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

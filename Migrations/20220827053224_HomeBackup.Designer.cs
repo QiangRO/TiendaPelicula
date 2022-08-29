@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TiendaPelicula.Data;
 
@@ -11,9 +12,10 @@ using TiendaPelicula.Data;
 namespace TiendaPelicula.Migrations
 {
     [DbContext(typeof(TiendaPeliculaContext))]
-    partial class TiendaPeliculaContextModelSnapshot : ModelSnapshot
+    [Migration("20220827053224_HomeBackup")]
+    partial class HomeBackup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,10 +31,6 @@ namespace TiendaPelicula.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Calificacion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaPublicacion")
                         .HasColumnType("datetime2");
