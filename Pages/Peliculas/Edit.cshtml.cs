@@ -71,7 +71,7 @@ namespace TiendaPelicula.Pages.Peliculas
 
         private bool PeliculaExists(int id)
         {
-          return (_context.Pelicula?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Pelicula?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

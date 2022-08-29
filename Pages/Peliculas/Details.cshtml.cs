@@ -27,7 +27,10 @@ namespace TiendaPelicula.Pages.Peliculas
             {
                 return NotFound();
             }
-
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
             var pelicula = await _context.Pelicula.FirstOrDefaultAsync(m => m.Id == id);
             if (pelicula == null)
             {

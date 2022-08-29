@@ -26,12 +26,11 @@ namespace TiendaPelicula.Pages.Peliculas
 
         [BindProperty]
         public Pelicula Pelicula { get; set; } = default!;
-        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Pelicula == null || Pelicula == null)
+            if (!ModelState.IsValid || _context.Pelicula == null || Pelicula == null)
             {
                 return Page();
             }

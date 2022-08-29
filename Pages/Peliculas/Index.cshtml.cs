@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TiendaPelicula.Data;
@@ -18,15 +19,38 @@ namespace TiendaPelicula.Pages.Peliculas
         {
             _context = context;
         }
-
+        
         public IList<Pelicula> Pelicula { get;set; } = default!;
 
+        [BindProperty(SupportsGet = true)]
+        public string? TextoBusqueda { get; set; }
+
+        public SelectList? Generos { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? GeneroPelicula { get; set; }
+        
         public async Task OnGetAsync()
         {
-            if (_context.Pelicula != null)
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Pelicula
+                                            orderby m.Genero
+                                            select m.Genero;
+
+            var movies = from m in _context.Pelicula
+                         select m;
+
+            if (!string.IsNullOrEmpty(TextoBusqueda))
             {
-                Pelicula = await _context.Pelicula.ToListAsync();
+                movies = movies.Where(s => s.Title.Contains(TextoBusqueda));
             }
+
+            if (!string.IsNullOrEmpty(GeneroPelicula))
+            {
+                movies = movies.Where(x => x.Genero == GeneroPelicula);
+            }
+            Generos = new SelectList(await genreQuery.Distinct().ToListAsync());
+            Pelicula = await movies.ToListAsync();
         }
     }
 }
