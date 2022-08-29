@@ -28,7 +28,8 @@ namespace TiendaPelicula.Modelos
                         Title = "When Harry Met Sally",
                         FechaPublicacion = DateTime.Parse("1989-2-12"),
                         Genero = "Romantic Comedy",
-                        Precio = 7.99M
+                        Precio = 7.99M,
+                        Calificacion = "R"
                     },
 
                     new Pelicula
@@ -36,7 +37,8 @@ namespace TiendaPelicula.Modelos
                         Title = "Ghostbusters ",
                         FechaPublicacion = DateTime.Parse("1984-3-13"),
                         Genero = "Comedy",
-                        Precio = 8.99M
+                        Precio = 8.99M,
+                        Calificacion = "P"
                     },
 
                     new Pelicula
@@ -44,7 +46,8 @@ namespace TiendaPelicula.Modelos
                         Title = "Ghostbusters 2",
                         FechaPublicacion = DateTime.Parse("1986-2-23"),
                         Genero = "Comedy",
-                        Precio = 9.99M
+                        Precio = 9.99M,
+                        Calificacion = "PG"
                     },
 
                     new Pelicula
@@ -52,7 +55,8 @@ namespace TiendaPelicula.Modelos
                         Title = "Rio Bravo",
                         FechaPublicacion = DateTime.Parse("1959-4-15"),
                         Genero = "Western",
-                        Precio = 3.99M
+                        Precio = 3.99M,
+                        Calificacion = "X"
                     }
                 );
                 context.SaveChanges();
