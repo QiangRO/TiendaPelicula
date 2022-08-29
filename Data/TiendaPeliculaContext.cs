@@ -14,6 +14,6 @@ namespace TiendaPelicula.Data
         {
         }
 
-        public DbSet<TiendaPelicula.Modelos.Pelicula> Pelicula { get; set; } = default!;
+        public DbSet<TiendaPelicula.Modelos.Pelicula>? Pelicula { get; set; } = default!;
     }
 }
