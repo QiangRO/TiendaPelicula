@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TiendaPelicula.Data;
+
 using TiendaPelicula.Modelos;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
 builder.Services.AddDbContext<TiendaPeliculaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TiendaPeliculaContext") ?? throw new InvalidOperationException("Connection string 'TiendaPeliculaContext' not found.")));
 
@@ -19,7 +19,6 @@ using (var scope = app.Services.CreateScope())
 
     SeedData.Initialize(services);
 }
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
